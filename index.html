@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneyker Store</title>
+    <link rel="stylesheet" href="checkout.html">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- 🔹 Navbar -->
+    <nav>
+        <div class="logo">Sneyker Store</div>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li>
+                <button id="cart-btn">🛒 Carrito (<span id="cart-count">0</span>)</button>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- 🔹 Modal del Carrito (inicialmente oculto) -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <ul id="cart-items"></ul>
+            <p>Total: $<span id="total">0</span></p>
+            <button onclick="goToCheckout()" src="/checkout.html" >Pagar</button>
+
+        </div>
+    </div>
+
+    <!-- 🔹 Contenedor principal -->
+    <div class="container">
+        <h1>Nuestros Productos</h1>
+
+        <!-- 📌 Sección de Productos -->
+        <div id="productos" class="products">
+            <div class="product">
+                <img src="/51fXuiChdJL._AC_SL1000_.jpg" alt="Laptop Dell Inspiron">
+                <h2>Laptop Dell Inspiron</h2>
+                <p>$800</p>
+                <button onclick="addToCart('Laptop Dell Inspiron', 800)">Agregar al carrito</button>
+            </div>
+            <div class="product">
+                <img src="/718b9wK3eaL._AC_SL1500_.jpg" alt="Mouse Logitech Inalámbrico">
+                <h2>Mouse Logitech</h2>
+                <p>$25</p>
+                <button onclick="addToCart('Mouse Logitech', 25)">Agregar al carrito</button>
+            </div>
+        </div>
+</body>
+</html>
