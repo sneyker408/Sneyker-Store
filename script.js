@@ -67,3 +67,26 @@ document.querySelectorAll("nav ul li a").forEach(anchor => {
         document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
     });
 });
+
+function viewDetails(name, price, img, description) {
+    const url = `producto.html?name=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}&img=${encodeURIComponent(img)}&description=${encodeURIComponent(description)}`;
+    window.location.href = url;
+}
+
+function updateCart() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartItems = document.getElementById("cart-items");
+    let total = 0;
+    cartItems.innerHTML = "";
+
+    cart.forEach((item, index) => {
+        total += parseFloat(item.price);
+        let li = document.createElement("li");
+        li.textContent = `${item.name} - $${item.price}`;
+        cartItems.appendChild(li);
+    });
+
+    document.getElementById("total").textContent = total.toFixed(2);
+    document.getElementById("cart-count").textContent = cart.length;
+}
+

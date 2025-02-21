@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Producto</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Usa el mismo CSS -->
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Mi Tienda</div>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="product-detail">
+            <img id="product-img" src="" alt="Producto">
+            <h2 id="product-name"></h2>
+            <p id="product-description"></p>
+            <p><strong>Precio:</strong> $<span id="product-price"></span></p>
+            <button onclick="addToCartFromDetail()">🛒 Agregar al carrito</button>
+        </div>
+    </div>
+    <script>
+        // Obtener los datos desde la URL
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("name");
+        const price = params.get("price");
+        const img = params.get("img");
+        const description = params.get("description");
+
+        // Asignar los datos a los elementos
+        document.getElementById("product-img").src = img;
+        document.getElementById("product-name").textContent = name;
+        document.getElementById("product-price").textContent = price;
+        document.getElementById("product-description").textContent = description;
+
+        // Función para agregar el producto al carrito desde la página de detalles
+        function addToCartFromDetail() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push({ name, price, img });
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(`✅ ${name} agregado al carrito.`);
+        }
+
+        
+    </script>
+
+</body>
+</html>
+

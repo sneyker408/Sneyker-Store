@@ -97,7 +97,8 @@ nav ul li button:hover {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 280px;
+    width: 220px;
+    padding: 10px;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -106,10 +107,13 @@ nav ul li button:hover {
 }
 
 .product img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
+    width: auto;
+    height: 80px; /* Fija la altura para hacerlo cuadrado */
+    object-fit: cover; /* Recorta la imagen para encajar en un cuadrado */
+    border-radius: 4px;
+    margin: auto;
 }
+
 
 button {
     background: #28a745;
